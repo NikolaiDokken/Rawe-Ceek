@@ -7,24 +7,30 @@ class Race {
   String locality;
   String? wiki;
   DateTime date;
+  DateTime dateTime;
 
-  Race(
-      {required this.round,
-      required this.raceName,
-      required this.country,
-      required this.locality,
-      required this.circuitName,
-      required this.circuitId,
-      required this.date});
+  Race({
+    required this.round,
+    required this.raceName,
+    required this.country,
+    required this.locality,
+    required this.circuitName,
+    required this.circuitId,
+    required this.date,
+    required this.dateTime,
+  });
 
   factory Race.fromJson(Map<String, dynamic> json) {
+    print(json);
     return Race(
-        round: json["round"],
-        raceName: json["raceName"],
-        circuitName: json["Circuit"]["circuitName"],
-        circuitId: json["Circuit"]["circuitId"],
-        country: json["Circuit"]["Location"]["country"],
-        locality: json["Circuit"]["Location"]["locality"],
-        date: DateTime.parse(json["date"] + " " + json["time"]));
+      round: json["round"],
+      raceName: json["raceName"],
+      circuitName: json["Circuit"]["circuitName"],
+      circuitId: json["Circuit"]["circuitId"],
+      country: json["Circuit"]["Location"]["country"],
+      locality: json["Circuit"]["Location"]["locality"],
+      date: DateTime.parse(json["date"]),
+      dateTime: DateTime.parse(json["date"] + " " + json["time"]),
+    );
   }
 }

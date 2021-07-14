@@ -19,10 +19,8 @@ class _RaweCeekState extends State<RaweCeek> {
           json.decode(res.body)["MRData"]["RaceTable"]["Races"][0]["date"];
 
       var raceDate = DateTime.parse(raceDateJson);
-      print(raceDate);
-      print(raceDate.difference(DateTime.now()).inDays);
-
-      return raceDate.difference(DateTime.now()).inDays < 5;
+      DateTime now = DateTime.now();
+      return raceDate.difference(DateTime(now.year, now.month, now.day)).inDays < 7;
     }
 
     return false;
@@ -30,7 +28,6 @@ class _RaweCeekState extends State<RaweCeek> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     isRaweCeek = getIsRaweCeek();
   }
