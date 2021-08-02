@@ -24,7 +24,6 @@ class _RaceResultsState extends State<RaceResults> {
     if (res.statusCode == 200) {
       final raceResults = json.decode(res.body)["MRData"]["RaceTable"]["Races"]
           [0]["Results"] as List;
-      print(raceResults);
 
       return raceResults
           .map((raceRes) => RaceResult.fromJson(raceRes))

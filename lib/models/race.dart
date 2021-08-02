@@ -21,7 +21,6 @@ class Race {
   });
 
   factory Race.fromJson(Map<String, dynamic> json) {
-    print(json);
     return Race(
       round: json["round"],
       raceName: json["raceName"],

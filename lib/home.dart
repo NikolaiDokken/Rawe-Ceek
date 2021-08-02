@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "pages/races.dart";
 import "pages/rawe_ceek.dart";
+import "pages/standings.dart";
 
 class Home extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _HomeState extends State<Home> {
 
   final List<Widget> pages = <Widget>[
     Races(),
+    Standings(),
     RaweCeek(),
   ];
 
@@ -26,6 +28,10 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             label: "Races",
             icon: Text("🏁", style: TextStyle(fontSize: 25),),
+          ),
+          BottomNavigationBarItem(
+            label: "Standings",
+            icon: Text("🏆", style: TextStyle(fontSize: 25),),
           ),
           BottomNavigationBarItem(
             label: "Rawe Ceek?",
