@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
+import 'package:rawe_ceek/driver_constructor_provider.dart';
 import '../../models/quali_result.dart';
 import '../../models/constructor_colors.dart';
 import "dart:convert";
@@ -25,8 +27,16 @@ class _RaceQualiState extends State<RaceQuali> {
       final qualiResults = json.decode(res.body)["MRData"]["RaceTable"]["Races"]
           [0]["QualifyingResults"] as List;
 
+      final drivers = context.read<DriverConstructorProvider>().drivers;
+      final constructors = context.read<DriverConstructorProvider>().constructors;
       return qualiResults
-          .map((qualiRes) => QualiResult.fromJson(qualiRes))
+          .map((qualiRes) => (QualiResult.fromJson(
+              json: qualiRes,
+              driver: drivers.firstWhere(
+                  (e) => e.driverId == qualiRes["Driver"]["driverId"]),
+              constructor: constructors.firstWhere((e) =>
+                  e.constructorId ==
+                  qualiRes["Constructor"]["constructorId"]))))
           .toList();
     }
 
