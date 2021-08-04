@@ -22,5 +22,5 @@ class Driver {
         familyName: json["familyName"],
         code: json["code"],
         nationality: json["nationality"]);
-    }
+  }
 }
