@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import "pages/races.dart";
-import "pages/rawe_ceek.dart";
-import "pages/standings.dart";
+import 'package:rawe_ceek/pages/races.dart';
+import 'package:rawe_ceek/pages/rawe_ceek.dart';
+import 'package:rawe_ceek/pages/standings/standings.dart';
 
 class Home extends StatefulWidget {
   @override
