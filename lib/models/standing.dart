@@ -1,14 +1,14 @@
 import 'package:rawe_ceek/models/car_constructor.dart';
 import 'package:rawe_ceek/models/driver.dart';
 
-class DriverStanding {
+class Standing {
   String position;
   String wins;
-  Driver driver;
+  Driver? driver;
   CarConstructor constructor;
   String points;
 
-  DriverStanding({
+  Standing({
     required this.position,
     required this.wins,
     required this.driver,
@@ -16,14 +16,14 @@ class DriverStanding {
     required this.points,
   });
 
-  factory DriverStanding.fromJson(
+  factory Standing.fromJson(
       {required Map<String, dynamic> json,
       Driver? driver,
-      CarConstructor? constructor}) {
-    return DriverStanding(
+      CarConstructor? constructor, bool isConstructorStanding = false}) {
+    return Standing(
         position: json["position"],
         wins: json["wins"],
-        driver: driver != null ? driver : Driver.fromJson(json["Driver"]),
+        driver: driver != null || isConstructorStanding ? driver : Driver.fromJson(json["Driver"]),
         constructor: constructor != null
             ? constructor
             : CarConstructor.fromJson(json["Constructor"]),

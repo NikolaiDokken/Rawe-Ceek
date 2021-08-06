@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rawe_ceek/models/constructor_colors.dart';
-import 'package:rawe_ceek/models/driver_standing.dart';
+import 'package:rawe_ceek/models/standing.dart';
 
-class DriverStandingsView extends StatelessWidget {
-  final List<DriverStanding> standings;
+class StandingsList extends StatelessWidget {
+  final List<Standing> standings;
+  final bool isConstructorStandings;
 
-  DriverStandingsView({required this.standings});
+  StandingsList({
+    required this.standings,
+    this.isConstructorStandings = false
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +36,8 @@ class DriverStandingsView extends StatelessWidget {
                             standings[index].constructor.constructorId])
                   ],
                 ),
-                title: Text(standings[index].driver.getFullName()),
-                subtitle: Text(standings[index].constructor.name),
+                title: Text(isConstructorStandings?standings[index].constructor.name : standings[index].driver!.getFullName()),
+                subtitle: Text(isConstructorStandings? standings[index].constructor.nationality : standings[index].constructor.name),
                 trailing: (Chip(
                     label: Row(mainAxisSize: MainAxisSize.min, children: [
                   Text(standings[index].wins,

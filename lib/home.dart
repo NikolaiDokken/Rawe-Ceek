@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rawe_ceek/pages/races.dart';
 import 'package:rawe_ceek/pages/rawe_ceek.dart';
-import 'package:rawe_ceek/pages/standings/standings.dart';
+import 'package:rawe_ceek/pages/standings/standings_view.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
 
   final List<Widget> pages = <Widget>[
     Races(),
-    Standings(),
+    StandingsView(),
     RaweCeek(),
   ];
 
