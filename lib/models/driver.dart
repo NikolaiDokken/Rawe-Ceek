@@ -23,4 +23,8 @@ class Driver {
         code: json["code"],
         nationality: json["nationality"]);
   }
+
+  String getFullName() {
+    return givenName + " " + familyName;
+  }
 }
